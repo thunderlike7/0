@@ -26,9 +26,9 @@ echo comp
 cmp $1 $2 
 if [ $? -ne 0 ]
 then
+echo comp exe
 else
 echo comp not
-echo comp exe
 fi
 echo diff
 diff $1 $2 
