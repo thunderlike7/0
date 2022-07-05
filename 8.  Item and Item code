@@ -1,0 +1,6 @@
+#!/bin/sh
+echo enter the itemname read itemname
+echo enter the itemcode
+read itemcode
+echo $itemname $itemcode> cat >>item.txt  
+cat item.txt
