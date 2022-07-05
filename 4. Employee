@@ -1,0 +1,10 @@
+#!/bin/sh
+grep "Manager" emp.txt> list.txt
+while read line
+do
+echo "$line"> tmp.txt v="cut -d "" -f 3 tmp.txt' 
+if [ $v -gt 60000]
+then
+echo "$line"
+fi 
+done <list.txt
