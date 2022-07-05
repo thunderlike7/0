@@ -1,0 +1,8 @@
+#!/bin/sh
+ls-l > list.txt
+wc -1 list.txt | cut -d "" -f 1 > count.txt
+n = `cat count.txt`
+n=$(($n-1))
+echo "$n"
+tail -$n list.txt > flist.txt
+cut -d " " -f 5,1,2,9 flist.txt
