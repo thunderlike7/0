@@ -1,0 +1,18 @@
+#!/bin/sh
+choice=0
+while [ $choice != 5 ]; do 
+echo "choose 1 to list current user"
+echo "choose 2 to list current user login" 
+echo "choose 3 to display current date"
+echo "choose 4 long listing of all files" 
+echo "choose 5 to exit"
+read choice
+case "$choice" in
+1) who;;
+2) who am I;; 
+3) date;;
+4) ls -l;; 
+5) exit;;
+*) echo "invalid choice";;
+esac 
+done
