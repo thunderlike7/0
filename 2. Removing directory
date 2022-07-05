@@ -1,0 +1,24 @@
+#!/bin/sh
+cd
+echo dir1
+read dir1
+echo dir2
+read dir2 
+cd dir1
+ls > list1.txt
+cd
+cd dir2
+ls > list2.txt
+cd
+cd dir1
+for i in 'cat list1.txt'
+do
+cd
+cd dir2 
+if grep "$i" list2.txt
+then
+rm $i
+fi
+cd
+cd dir1
+done
