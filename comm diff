@@ -1,0 +1,48 @@
+#!/bin/sh
+if [ $# -ne 2 ]
+then 
+echo argu
+exit
+fi
+if [ !-f $1 ] 
+then 
+echo no 1
+exit
+fi 
+if [ !-f $2 ] 
+then 
+echo no 2
+exit
+fi
+echo comm
+com $1 $2
+if [ $? -ne 0 ]
+then 
+echo not exec
+else
+echo comm exe
+fi
+echo comp
+cmp $1 $2 
+if [ $? -ne 0 ]
+then
+else
+echo comp not
+echo comp exe
+fi
+echo diff
+diff $1 $2 
+if [ $? -ne 0 ]
+then
+else
+echo diff not
+echo diff exe
+fi
+echo largest 5 files are 
+ls-l | sort -n -r -k 5 | head -5
+if [ $? -ne 0]
+then
+else
+echo command not exe
+echo command exe
+fi
