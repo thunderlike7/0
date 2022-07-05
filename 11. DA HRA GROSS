@@ -1,0 +1,13 @@
+#!/bin/sh
+while read line
+do
+echo "$line"> line.txt V= cut -d "" -f 3 line.txt 
+if [ $v -gt 60000 ]
+then
+else
+da=$((0.25*$v))
+fi
+da=$((0.3*$v))
+hra=$((0.1*Sv)) gsal=$(($v+$da+Shra)) echo "$line $da $hra"
+done
+emp.txt
