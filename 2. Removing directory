@@ -1,24 +1,20 @@
 #!/bin/sh
-cd
-echo dir1
-read dir1
-echo dir2
-read dir2 
-cd dir1
-ls > list1.txt
-cd
-cd dir2
-ls > list2.txt
-cd
-cd dir1
-for i in 'cat list1.txt'
+cd $1
+ls>list1.lst
+cd ..
+cd $2
+ls>list2.lst
+cd ..
+cd $1
+for word in `cat list1.lst`
 do
-cd
-cd dir2 
-if grep "$i" list2.txt
+cd ..
+cd $2
+grep "$word" "list2.lst"
+if [ $? -eq 0 ]
 then
-rm $i
+rm $word
 fi
-cd
-cd dir1
+cd ..
+cd $1
 done
