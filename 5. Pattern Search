@@ -1,11 +1,17 @@
 #!/bin/sh
-echo "Enter the pattern"
+echo Enter the filename
+read f
+echo Enter the pattern to be searched
 read pat
-ls > list.txt
-for i in `cat list.txt` do
-if grep "$pat" $i then
+if [ ! -f $f ]
+then
+	echo File does not exist
+	exit
+fi
+grep "$pat" $f
+if [ $? -eq 0 ]
+then
+	echo Command executed successfully
 else
-echo "Pattern $pat is found in file $i"
-fi 
-done
-echo "Pattern $pat is not found in file $i"
+	echo Command failed
+fi
