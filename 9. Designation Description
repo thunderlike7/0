@@ -1,16 +1,16 @@
-#!/bin/sh
-echo enter the code
-read code
-echo enter the des
-read des
-if echo $code | egrep -q^[0-9]+$"; then
-echo $code is a number
+#! /bin/sh
+if echo $1 | egrep -q '^[0-9]+$’; then
+	echo Valid code
 else
+	echo Invalid code...Code must be numeric
+	exit
 fi
-echo $code is not a number
-if echo $des | egrep -q ^[a-zA-Z]+$"; then
-echo $des has all alphabets
+if echo $2 | egrep -q '^[a-zA-Z]+$' ; then
+	echo Valid designation
 else
-echo $des does not have all alphabets
+	echo Invalid code...Designation must contain alphabets
+	exit
 fi
-echo $code Sdes >> f1.txt
+echo $1 $2 >> desig.list
+echo Data added successfully
+cat desig. list
