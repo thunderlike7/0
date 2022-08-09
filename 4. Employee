@@ -1,10 +1,12 @@
 #!/bin/sh
-grep "Manager" emp.txt> list.txt
+grep "manager" emp.lst>temp
 while read line
 do
-echo "$line"> tmp.txt v="cut -d "" -f 3 tmp.txt' 
-if [ $v -gt 60000]
+echo $line>temporary
+v=$(cut -d ' ' -f 5 temporary)
+if [ $v -gt 60000 ]
 then
-echo "$line"
-fi 
-done <list.txt
+cut -d ' ' -f 1,2 temporary>emp1
+cat emp1
+fi
+done<temp
