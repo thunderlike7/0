@@ -1,13 +1,15 @@
 #!/bin/sh
 while read line
 do
-echo "$line"> line.txt V= cut -d "" -f 3 line.txt 
-if [ $v -gt 60000 ]
-then
+        echo $line > line.txt
+        v=`cut -d " " -f 5 line.txt`
+        if [ $v -gt 60000 ]
+        then
+                da=`expr $v*0.3 | bc`
 else
-da=$((0.25*$v))
-fi
-da=$((0.3*$v))
-hra=$((0.1*Sv)) gsal=$(($v+$da+Shra)) echo "$line $da $hra"
-done
-emp.txt
+        da=`expr $v*0.2 | bc`
+        fi
+        hra=`expr 0.1*$v | bc`
+        gs=`expr $da+$hra+$v | bc`
+echo $line $da $hra $v
+done<emp.txt
