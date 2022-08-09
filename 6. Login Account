@@ -1,12 +1,11 @@
 #!/bin/sh
-echo "Enter the login name of be searched"
-read l
-who >lst
-cut -d" " -f 1 lst >loginname
-grep $l loginname 
-if [ $? -eq 0 ]
+echo enter username
+read uname
+#if who | grep "^$uname "
+#if who | grep "$uname "
+if who | grep -w "$uname"
 then
-echo "loginname exists"
+        echo exists
 else
-echo "login doesnot exits"
+        echo not
 fi
