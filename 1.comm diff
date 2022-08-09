@@ -46,3 +46,41 @@ else
 echo command not exe
 echo command exe
 fi
+
+
+
+#! /bin/sh
+if [ $# -ne 2]
+then
+    echo Argument count doesn’t match
+    exit
+fi
+if [ ! -f $1 ]
+then
+    echo $1 does not exist
+    exit
+fi
+if [ ! -f $2 ]
+then
+    echo $2 does not exist
+    exit
+fi
+cmp $1 $2
+if [ $? -eq 0 ]
+then
+    echo Compare command executed successfully
+fi
+echo Common between the files is
+comm $1 $2
+if [ $? -eq 0 ]
+then
+    echo Common command executed successfully
+fi
+echo Difference between files is
+diff $1 $2
+if [ $? -eq 0 ]
+then
+     echo Difference command executed successfully
+fi
+echo The five largest files among the current dircetory are
+ls -l | sort -n -k 5 | tail -5
