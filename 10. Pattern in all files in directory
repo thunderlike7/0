@@ -1,15 +1,11 @@
-#!/bin/sh
-echo "Enter the path" 
+#! /bin/sh
+echo "enter the directory path"
 read path
-echo "Enter the pattern"
-read pat 
+echo "enter to pattern to be searched"
+read pat
 cd $path
-ls list.txt
-for in cat list.txt'
+ls > just
+for word in `cat just`
 do
-if grep "$pat" $i 
-then
-echo "Pattern $pat is found in file $i"
-else
-echo "Pattern $pat is not found in file $i"
+grep "$pat" $word
 done
