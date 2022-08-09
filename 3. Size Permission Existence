@@ -1,8 +1,10 @@
 #!/bin/sh
-ls-l > list.txt
-wc -1 list.txt | cut -d "" -f 1 > count.txt
-n = `cat count.txt`
-n=$(($n-1))
-echo "$n"
-tail -$n list.txt > flist.txt
-cut -d " " -f 5,1,2,9 flist.txt
+ls -l > list2
+n=`wc -l list2 | cut -d " " -f 1`
+n=`expr $n - 1`
+tail -$n list2 > list3
+cut -c 12 list3 > linkk
+cut -c 1-10 list3 > p
+cut -c 45- list3 > name
+cut -c 27-32 list3 > fs
+paste -d "|" name p fs link
